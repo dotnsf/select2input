@@ -34,6 +34,26 @@ $(function(){
     $('#mySelect').css( 'display', 'none' );
     $('#myInput').css( 'display', 'block' );
   });
+
+  //. input がフォーカスを失ったら、値を select に追加して input を非表示にし、select が再表示され、かつその値が選択されている状態にする
+  $('#myInput').blur( function(){
+    var v = $('#myInput').val();
+    var index = -1;
+    $('#mySelect option').each( function( idx, element ){
+       if( v == $(element).attr( 'value' ) ){
+         index = idx;
+       }
+    });
+    if( index == -1 ){
+      //. select に存在していない値が指定されていた場合のみ追加
+      $('#mySelect').append( '<option value="' + v + '">' + v + '</option>' );
+      $('#mySelect').val( v );
+    }
+
+
+    $('#mySelect').css( 'display', 'block' );
+    $('#myInput').css( 'display', 'none' );
+  });
 });
 
 //. select の値が変わったら、その値を隠しフィールドに代入しておく
