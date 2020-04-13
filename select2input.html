@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3c.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+<meta charset="utf8"/>
+<meta http-equiv="pragma" content="no-cache"/>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="apple-mobile-web-app-title" content="IPO"/>
+
+<title>select 2 input</title>
+<style>
+</style>
+<script>
+$(function(){
+});
+
+//. 現在の値を取り出す
+function getValue(){
+  var v = $('#mySelect').val();
+  alert( v );
+}
+</script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">select to input</a>
+</nav>
+
+<div class="container" style="position: relative; top: 50px;">
+  <table>
+  <tr><td>
+    <select id="mySelect">
+      <option value="12345">12345</option>
+      <option value="23456">23456</option>
+      <option value="34567">34567</option>
+      <option value="45678">45678</option>
+      <option value="56789">56789</option>
+    </select>
+  </td><td>
+    <input type="button" class="btn btn-primary" value="Value" onClick="getValue();"/>
+  </td></tr>
+  </table>
+</div>
+</body>
+</html>
