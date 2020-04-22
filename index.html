@@ -6,6 +6,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="./select2input.js"></script>
 
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -14,58 +15,14 @@
 
 <title>select 2 input</title>
 <style>
-#mySelect{
-  height: 40px;
-  width: 200px;
-}
-#myInput{
-  height: 40px;
-  width: 200px;
-}
 </style>
 <script>
 $(function(){
-  //. select の値が変わった時のハンドリングを定義
-  $('#mySelect').change( onSelectChange );
-  onSelectChange();
-
-  //. select がダブルクリックされたら select を非表示にした上で、同じ値が入っている input を表示する
-  $('#mySelect').dblclick( function( e ){
-    $('#mySelect').css( 'display', 'none' );
-    $('#myInput').css( 'display', 'block' );
-  });
-
-  //. input がフォーカスを失ったら、値を select に追加して input を非表示にし、select が再表示され、かつその値が選択されている状態にする
-  $('#myInput').blur( function(){
-    var v = $('#myInput').val();
-    var index = -1;
-    $('#mySelect option').each( function( idx, element ){
-       if( v == $(element).attr( 'value' ) ){
-         index = idx;
-       }
-    });
-    if( index == -1 ){
-      //. select に存在していない値が指定されていた場合のみ追加
-      $('#mySelect').append( '<option value="' + v + '">' + v + '</option>' );
-      $('#mySelect').val( v );
-    }
-
-
-    $('#mySelect').css( 'display', 'block' );
-    $('#myInput').css( 'display', 'none' );
-  });
+  $('#mySelect').selectinput();
 });
 
-//. select の値が変わったら、その値を隠しフィールドに代入しておく
-function onSelectChange(){
-  var v = $('#mySelect').val();
-  $('#myInput').val( v );
-}
-
-//. 現在の値を取り出す
 function getValue(){
-  //. select ではなく input に入っている値を取り出す
-  var v = $('#myInput').val();
+  var v = $('#mySelect').getValue();
   alert( v );
 }
 </script>
@@ -79,14 +36,13 @@ function getValue(){
 <div class="container" style="position: relative; top: 50px;">
   <table>
   <tr><td>
-    <select id="mySelect">
+    <select id="mySelect" style="width: 150px;">
       <option value="12345">12345</option>
       <option value="23456">23456</option>
       <option value="34567">34567</option>
       <option value="45678">45678</option>
       <option value="56789">56789</option>
     </select>
-    <input type="text" id="myInput" style="display:none;" value=""/>
   </td><td>
     <input type="button" class="btn btn-primary" value="Value" onClick="getValue();"/>
   </td></tr>
