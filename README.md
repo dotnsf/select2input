@@ -10,7 +10,9 @@ Sample for &lt;select&gt; field, which would be changed to &lt;input&gt; field w
 
 ### introduction
 
-1. Load jQuery and select2input.js as above.
+0. Download this repository, and place **select2input.js** somewhere in your project( or CORS free CDN ).
+
+1. Load jQuery and select2input.js in your HTML.
 
 2. Call **selectinput()** method for id-specified &lt;select&gt; element.
 
@@ -22,7 +24,7 @@ Sample for &lt;select&gt; field, which would be changed to &lt;input&gt; field w
 
 ```
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://raw.githubusercontent.com/dotnsf/select2input/master/select2input.js"></script>
+<script src="./select2input.js"></script>
 ```
 
 ```
