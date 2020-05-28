@@ -7,6 +7,7 @@ $.fn.selectinput = function( opt ){
     var input = '<input type="text" class="select2input_input" id="' + input_id + '" style="display:none;" value=""/>';
     thisone.parent().append( input );
 
+    //. width
     var w = '200px';
     var this_width = thisone.css( 'width' );
     if( this_width ){ w = this_width; }
@@ -14,12 +15,27 @@ $.fn.selectinput = function( opt ){
     thisone.css( 'width', w );
     $('#'+input_id).css( 'width', w );
 
+    //. height
     var h = '40px';
     var this_height = thisone.css( 'height' );
     if( this_height ){ h = this_height; }
     else if( opt && opt.height ){ h = opt.height; }
     thisone.css( 'height', h );
     $('#'+input_id).css( 'height', h );
+
+    //. color
+    var this_color = thisone.css( 'color' );
+    if( this_color ){
+      thisone.css( 'color', color );
+      $('#'+input_id).css( 'color', color );
+    }
+
+    //. background-color
+    var this_background_color = thisone.css( 'background-color' );
+    if( this_background_color ){
+      thisone.css( 'background-color', background_color );
+      $('#'+input_id).css( 'background-color', background_color );
+    }
 
     //. select の値が変わった時のハンドリングを定義
     thisone.change( function( e ){
