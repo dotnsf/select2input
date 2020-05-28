@@ -18,13 +18,14 @@
 </style>
 <script>
 $(function(){
-  $('#mySelect').selectinput();
+  $('.select2input').selectinput();
 });
-
+/*
 function getValue(){
   var v = $('#mySelect').getValue();
   alert( v );
 }
+*/
 </script>
 </head>
 <body>
@@ -36,7 +37,7 @@ function getValue(){
 <div class="container" style="position: relative; top: 50px;">
   <table>
   <tr><td>
-    <select id="mySelect" style="width: 150px;">
+    <select id="mySelect1" class="select2input" style="width: 150px;">
       <option value="12345">12345</option>
       <option value="23456">23456</option>
       <option value="34567">34567</option>
@@ -44,7 +45,18 @@ function getValue(){
       <option value="56789">56789</option>
     </select>
   </td><td>
-    <input type="button" class="btn btn-primary" value="Value" onClick="getValue();"/>
+    <input type="button" class="btn btn-primary" value="Value" onClick="alert($('#mySelect1').getValue());"/>
+  </td></tr>
+  <tr><td>
+    <select id="mySelect2" class="select2input" style="width: 200px;">
+      <option value="abcde">abcde</option>
+      <option value="bcdef">bcdef</option>
+      <option value="cdefg">cdefg</option>
+      <option value="defgh">defgh</option>
+      <option value="efghi">efghi</option>
+    </select>
+  </td><td>
+    <input type="button" class="btn btn-primary" value="Value" onClick="alert($('#mySelect2').getValue());"/>
   </td></tr>
   </table>
 </div>

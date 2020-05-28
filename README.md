@@ -14,11 +14,11 @@ Sample for &lt;select&gt; field, which would be changed to &lt;input&gt; field w
 
 1. Load jQuery and select2input.js in your HTML.
 
-2. Call **selectinput()** method for id-specified &lt;select&gt; element.
+2. Call **selectinput()** method for class-specified &lt;select&gt; element.
 
 3. Select item, or edit item after double-cliked.
 
-4. Call **getValue()** method for is-specified &lt;select&gt; element to get current value.
+4. Call **getValue()** method for id-specified &lt;select&gt; element to get current value.
 
 ### sample
 
@@ -30,18 +30,13 @@ Sample for &lt;select&gt; field, which would be changed to &lt;input&gt; field w
 ```
 <script>
 $(function(){
-  $('#mySelect').selectinput();
+  $('.select2input').selectinput();
 });
-
-function getValue(){
-  var v = $('#mySelect').getValue();
-  alert( v );
-}
 </script>
 ```
 
 ```
-<select id="mySelect" style="width: 150px;">
+<select id="mySelect" class="select2input" style="width: 150px;">
   <option value="12345">12345</option>
   <option value="23456">23456</option>
   <option value="34567">34567</option>
@@ -51,7 +46,7 @@ function getValue(){
 ```
 
 ```
-<input type="button" class="btn btn-primary" value="Value" onClick="getValue();"/>
+<input type="button" class="btn btn-primary" value="Value" onClick="alert($('#mySelect').getValue());"/>
 ```
 
 
